@@ -18,15 +18,15 @@ Explanation: 2 does not exist in nums so return -1
 */
 
 const search = (nums, target) => {
-  let [left, right] = [0, nums.length - 1];
-  while (left <= right) {
-      const mid = Math.floor((left + right) / 2)
-      if (nums[mid] === target) {
-          return mid
-      } else if (nums[mid] < target) {
-          left = mid + 1;
+  let [leftEdge, rightEdge] = [0, nums.length - 1];
+  while (leftEdge <= rightEdge) {
+      const middle = Math.floor((leftEdge + rightEdge) / 2)
+      if (nums[middle] === target) {
+          return middle
+      } else if (nums[middle] < target) {
+          leftEdge = middle + 1;
       } else {
-          right = mid - 1;
+          rightEdge = middle - 1;
       }
   }
   return -1;
