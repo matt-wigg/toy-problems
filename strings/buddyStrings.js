@@ -36,7 +36,7 @@ Output: false
 
 const buddyStrings = (A, B) => {
   if (A.length !== B.length) return false;
-  if (A === B && Array.from(new Set(A.split(""))).length < A.length) return true;
+  if (A === B && new Set(A).size < A.length) return true;
   let [aSeen, bSeen] = [[], []];
   for (let i = 0; i < A.length; i += 1) {
     if (A[i] !== B[i]) {
