@@ -30,7 +30,6 @@ Input: root = [1,2]
 Output: [1,2]
 */
 
-
 //  Definition for a binary tree node.
 function TreeNode(val) {
   this.val = val;
