@@ -17,10 +17,11 @@ Input: head = []
 Output: []
 
 */
+
 const mergeSort = (a, b) => {
   const sortedList = new ListNode();
   let current = sortedList;
-  while (a !== null && b !== null) {
+  while (a && b) {
     if (a.val > b.val) {
       current.next = b;
       b = b.next;
@@ -30,12 +31,12 @@ const mergeSort = (a, b) => {
     }
     current = current.next;
   }
-  while (a !== null) {
+  while (a) {
     current.next = a;
     a = a.next;
     current = current.next;
   }
-  while (b !== null) {
+  while (b) {
     current.next = b;
     b = b.next;
     current = current.next;
@@ -44,9 +45,9 @@ const mergeSort = (a, b) => {
 };
 
 const sortList = (head) => {
-  if (head === null || head.next === null) return head;
+  if (!head || !head.next) return head;
   let [slow, temp, fast] = [head, head, head];
-  while (fast !== null && fast.next !== null) {
+  while (fast && fast.next) {
     [temp, slow, fast] = [slow, slow.next, fast.next.next];
   }
   temp.next = null;
