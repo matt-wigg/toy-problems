@@ -29,10 +29,10 @@ Output: 0
 
 const rob = (nums) => {
 
-  if (!nums || nums.length == 0) return 0;
+  if (!nums || nums.length === 0) return 0;
 
   const totalHouses = nums.length;
-  if (totalHouses == 1) return nums[0];
+  if (totalHouses === 1) return nums[0];
 
   const robbingTime = (start, end) => {
     const totalHouses = end - start + 1;
