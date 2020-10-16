@@ -26,6 +26,6 @@ rotate 2 steps to the right: [3,99,-1,-100]
 */
 
 const rotate = (nums, k) => {
-  k = k % nums.length;
+  k %= nums.length;
   nums.unshift(...nums.splice(-k));
 };
