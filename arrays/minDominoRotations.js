@@ -7,8 +7,8 @@ In a row of dominoes, A[i] and B[i] represent the top and bottom halves of the i
 
 We may rotate the ith domino, so that A[i] and B[i] swap values.
 
-Return the minimum number of rotations so that all the values in A are the same, or all the 
-values in B are the same.
+Return the minimum number of rotations so that all the values in A are the sameNumbers, or all the 
+values in B are the sameNumbers.
 
 If it cannot be done, return -1.
 
@@ -29,18 +29,18 @@ In this case, it is not possible to rotate the dominoes to make one row of value
 */
 
 const minDominoRotations = (A, B) => {
-  const numberOfA = new Array(7).fill(0);
-  const numberOfB = new Array(7).fill(0);
-  const same = new Array(7).fill(0);
-  for (let i = 0; i < A.length; i++) {
-    numberOfA[A[i]]++;
-    numberOfB[B[i]]++;
-    if (A[i] == B[i]) same[A[i]]++;
+  const seenA = new Array(7).fill(0);
+  const seenB = new Array(7).fill(0);
+  const sameNumbers = new Array(7).fill(0);
+  for (let i = 0; i < A.length; i += 1) {
+    seenA[A[i]] += 1;
+    seenB[B[i]] += 1;
+    if (A[i] === B[i]) sameNumbers[A[i]] += 1;
   }
-  for (let i = 1; i <= 6; i++) {
-    if (numberOfA[i] + numberOfB[i] - same[i] == A.length) {
-      return Math.min(numberOfA[i] - same[i], numberOfB[i] - same[i]);
+  for (let j = 1; j <= 6; j += 1) {
+    if (seenA[j] + (seenB[j] - sameNumbers[j]) === A.length) {
+      return Math.min(seenA[j] - sameNumbers[j], seenB[j] - sameNumbers[j]);
     }
   }
   return -1;
-}
+};
